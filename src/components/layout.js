@@ -1,53 +1,46 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
+import styled from 'styled-components';
+import React from 'react';
+import Footer from './Footer';
+import Nav from './Nav';
+import 'normalize.css';
+// import GlobalStyles from '../styles/GlobalStyles';
+// import Typography from '../styles/Typography';
+// import stripes from '../assets/images/stripes.svg';
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+const SiteBorderStyles = styled.div`
+  max-width: 1000px;
+  margin: 12rem auto 4rem auto;
+  margin-top: clamp(2rem, 10vw, 12rem);
+  background-size: 1500px;
+  padding: 5px;
+  padding: clamp(5px, 1vw, 25px);
 
-import Header from "./header"
-import "./layout.css"
+  @media (max-width: 1100px) {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+`;
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+const ContentStyles = styled.div`
+  background: white;
+  padding: 2rem;
+`;
 
+const LayoutStyle = styled.div`
+  display: grid;
+  grid-template-columns: 200px 1fr;
+`;
+
+export default function Layout({ children }) {
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer style={{
-          marginTop: `2rem`
-        }}>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+    <LayoutStyle>
+      <Nav />
+      <div>
+        <ContentStyles>
+          {children}
+          <Footer />
+        </ContentStyles>
       </div>
-    </>
-  )
+    </LayoutStyle>
+  );
 }
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default Layout
