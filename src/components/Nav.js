@@ -34,26 +34,31 @@ const NavStyle = styled.div`
     /* &:hover {
       color: red;
     } */
-    @media (max-width: 800px) {
+    /* @media (max-width: 800px) {
       font-size: 2rem;
-    }
+    } */
     &[aria-current='page'] {
       color: red;
     }
   }
   .logo {
-    /* font-family: 'Plaster', cursive;
+    font-family: 'Plaster', cursive;
     font-size: 65px;
-    color: #1964bd; */
-    font-family: 'Megrim', cursive;
+    color: #1964bd;
+    /* font-family: 'Megrim', cursive;
     font-size: 80px;
     font-weight: bolder;
-    color: #1964bd;
+    color: #1964bd; */
+    /* text-shadow: 0px 1px, 1px 0px, 1px 1px; */
     &[aria-current='page'] {
       color: #1964bd;
     }
   }
 `;
+const AniLinkConfigs = {
+  entryOffset: 100,
+  duration: '0.3',
+};
 
 export default function Nav({ location }) {
   return (
@@ -68,11 +73,12 @@ export default function Nav({ location }) {
                 location.pathname === withPrefix('/about') ||
                 location.pathname === withPrefix('/portfolio') ||
                 location.pathname === withPrefix('/contact')
-                  ? 'left'
-                  : 'right'
+                  ? 'right'
+                  : 'left'
               }`}
-              entryOffset={100}
               className="logo"
+              entryOffset={AniLinkConfigs.entryOffset}
+              duration={AniLinkConfigs.duration}
             >
               WY
             </AniLink>
@@ -84,11 +90,11 @@ export default function Nav({ location }) {
               direction={`${
                 location.pathname === withPrefix('/portfolio') ||
                 location.pathname === withPrefix('/contact')
-                  ? 'left'
-                  : 'right'
+                  ? 'right'
+                  : 'left'
               }`}
-              entryOffset={100}
-              data-id="2"
+              entryOffset={AniLinkConfigs.entryOffset}
+              duration={AniLinkConfigs.duration}
             >
               About
             </AniLink>
@@ -98,16 +104,22 @@ export default function Nav({ location }) {
               swipe
               to="/portfolio"
               direction={`${
-                location.pathname === withPrefix('/contact') ? 'left' : 'right'
+                location.pathname === withPrefix('/contact') ? 'right' : 'left'
               }`}
-              entryOffset={100}
-              data-id="3"
+              entryOffset={AniLinkConfigs.entryOffset}
+              duration={AniLinkConfigs.duration}
             >
               Portfolio
             </AniLink>
           </li>
           <li>
-            <AniLink swipe to="/contact" entryOffset={100} data-id="4">
+            <AniLink
+              swipe
+              to="/contact"
+              entryOffset={AniLinkConfigs.entryOffset}
+              duration={AniLinkConfigs.duration}
+              direction="left"
+            >
               Contact
             </AniLink>
           </li>

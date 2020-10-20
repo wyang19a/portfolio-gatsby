@@ -24,6 +24,7 @@ import Typography from '../styles/Typography';
 const ContentStyles = styled.div`
   /* background: linear-gradient(to right, #010048, #090088); */
   background: #010048;
+  /* padding: 5.5rem; */
   color: white;
   width: 100%;
   height: 100vh;
