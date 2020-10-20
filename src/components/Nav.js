@@ -1,17 +1,23 @@
-import { Link } from 'gatsby';
+import { Link, withPrefix } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 const NavStyle = styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Megrim&family=Plaster&display=swap');
+  --padtop: 5rem;
   ul {
+    border-right: 3px solid #02006c;
     margin: 0;
     padding: 0;
+    padding-top: var(--padtop);
     text-align: center;
     list-style: none;
-
+    height: calc(100vh - var(--padtop));
+    background-color: #03002e;
     display: grid;
     grid-template-rows: repeat(5, 100px);
-    /* grid-gap: 2rem; this is equal to 20px because parent element html has font-size: 10px; */
+
     align-items: center;
 
     justify-content: center;
@@ -20,9 +26,9 @@ const NavStyle = styled.div`
     display: grid;
     order: 1;
   }
-
   a {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    color: white;
     text-decoration: none;
     /* display: block; */
     /* &:hover {
@@ -31,32 +37,82 @@ const NavStyle = styled.div`
     @media (max-width: 800px) {
       font-size: 2rem;
     }
-    /* &[aria-current='page'] {
-      color: var(--red);
-    } */
+    &[aria-current='page'] {
+      color: red;
+    }
+  }
+  .logo {
+    /* font-family: 'Plaster', cursive;
+    font-size: 65px;
+    color: #1964bd; */
+    font-family: 'Megrim', cursive;
+    font-size: 80px;
+    font-weight: bolder;
+    color: #1964bd;
+    &[aria-current='page'] {
+      color: #1964bd;
+    }
   }
 `;
 
-export default function Nav() {
+export default function Nav({ location }) {
   return (
     <NavStyle>
-      <ul>
-        <li>
-          <Link to="/">Hot Now</Link>
-        </li>
-        <li>
-          {/* <p>hi</p> */}
-          <Link to="#">Pizza Menu</Link>
-        </li>
-        <li>
-          {/* <p>hi</p> */}
-          <Link to="#">SliceMasters</Link>
-        </li>
-        <li>
-          {/* <p>hi</p> */}
-          <Link to="#">Order Ahead!</Link>
-        </li>
-      </ul>
+      <div>
+        <ul>
+          <li>
+            <AniLink
+              swipe
+              to="/"
+              direction={`${
+                location.pathname === withPrefix('/about') ||
+                location.pathname === withPrefix('/portfolio') ||
+                location.pathname === withPrefix('/contact')
+                  ? 'left'
+                  : 'right'
+              }`}
+              entryOffset={100}
+              className="logo"
+            >
+              WY
+            </AniLink>
+          </li>
+          <li>
+            <AniLink
+              swipe
+              to="/about"
+              direction={`${
+                location.pathname === withPrefix('/portfolio') ||
+                location.pathname === withPrefix('/contact')
+                  ? 'left'
+                  : 'right'
+              }`}
+              entryOffset={100}
+              data-id="2"
+            >
+              About
+            </AniLink>
+          </li>
+          <li>
+            <AniLink
+              swipe
+              to="/portfolio"
+              direction={`${
+                location.pathname === withPrefix('/contact') ? 'left' : 'right'
+              }`}
+              entryOffset={100}
+              data-id="3"
+            >
+              Portfolio
+            </AniLink>
+          </li>
+          <li>
+            <AniLink swipe to="/contact" entryOffset={100} data-id="4">
+              Contact
+            </AniLink>
+          </li>
+        </ul>
+      </div>
     </NavStyle>
   );
 }
