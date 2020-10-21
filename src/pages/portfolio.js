@@ -1,8 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import Comp from '../assets/images/comp.png';
+import Poll from '../assets/images/poll.png';
+import Tic from '../assets/images/tic.png';
+import Task from '../assets/images/task.png';
 
 const PortfolioStyles = styled.div`
   padding: 5.5rem;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   max-height: 100vh;
@@ -25,27 +31,23 @@ const PortfolioStyles = styled.div`
     transition: 0.1s;
   }
   .container .clip.clip1 {
-    background: red;
-    /* background: url();
-    background-size: cover; */
+    background: url(${Tic});
+    background-size: cover;
     clip-path: polygon(0 0, 39.5% 0, 0% 100%, 0% 100%);
   }
   .container .clip.clip2 {
-    background: green;
-    /* background: url();
-    background-size: cover; */
+    background: url(${Comp});
+    background-size: cover;
     clip-path: polygon(40.5% 0, 64.5% 0, 34.5% 100%, 1% 100%);
   }
   .container .clip.clip3 {
-    background: blue;
-    /* background: url();
-    background-size: cover; */
+    background: url(${Poll});
+    background-size: cover;
     clip-path: polygon(65.5% 0, 99% 0, 59.5% 100%, 35.5% 100%);
   }
   .container .clip.clip4 {
-    background: yellow;
-    /* background: url();
-    background-size: cover; */
+    background: url(${Task});
+    background-size: cover;
     clip-path: polygon(100% 0, 100% 0, 100% 100%, 60.5% 100%);
   }
   /* .container .clip.clip1:hover {
@@ -66,6 +68,7 @@ const PortfolioStyles = styled.div`
     z-index: 1;
   }
   .container .clip .content {
+    background-color: grey;
     position: absolute;
     bottom: -100%;
     left: 0;
@@ -87,6 +90,7 @@ const clickedButton = () => {
 clickedButton();
 const PortfolioPage = () => (
   <PortfolioStyles>
+    <h1>Toy projects</h1>
     <div className="container">
       <div
         className="clip clip1"
@@ -96,7 +100,7 @@ const PortfolioPage = () => (
         onClick={clickedButton}
       >
         <div className="content">
-          <h2>Post1</h2>
+          <h2>Tic-Tac-Toe</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
             natus nisi dolorem nam, quisquam possimus maxime recusandae amet
@@ -106,7 +110,7 @@ const PortfolioPage = () => (
       </div>
       <div className="clip clip2">
         <div className="content">
-          <h2>Post2</h2>
+          <h2>Compounding Logger</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
             natus nisi dolorem nam, quisquam possimus maxime recusandae amet
@@ -116,7 +120,7 @@ const PortfolioPage = () => (
       </div>
       <div className="clip clip3">
         <div className="content">
-          <h2>Post3</h2>
+          <h2>Survey App</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
             natus nisi dolorem nam, quisquam possimus maxime recusandae amet
@@ -126,7 +130,7 @@ const PortfolioPage = () => (
       </div>
       <div className="clip clip4">
         <div className="content">
-          <h2>Post4</h2>
+          <h2>Task Scheduler</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
             natus nisi dolorem nam, quisquam possimus maxime recusandae amet
