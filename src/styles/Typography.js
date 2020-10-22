@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import font from '../assets/fonts/Megrim-Regular.ttf';
 
 const Typography = createGlobalStyle`
 

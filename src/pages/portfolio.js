@@ -1,15 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-import Comp from '../assets/images/comp.png';
-import Poll from '../assets/images/poll.png';
-import Tic from '../assets/images/tic.png';
-import Task from '../assets/images/task.png';
+import projects from '../components/ProjectList';
 
-const PortfolioStyles = styled.div``;
+const PortfolioStyles = styled.div`
+  padding: 5.5rem;
+  display: grid;
+`;
+const SingleProjectStyle = styled.div`
+  width: 100%;
+  height: 500px;
+`;
 
+const SingleProject = ({ project }) => (
+  <SingleProjectStyle>
+    <h2>{project.name}</h2>
+    <img src={project.imgPath} alt={project.name} />
+    {/* <img src="../assets/images/comp.png" alt="Hi" /> */}
+  </SingleProjectStyle>
+);
 const PortfolioPage = () => (
   <PortfolioStyles>
-    <p>Portfolio Page</p>
+    {projects.map((project) => (
+      <SingleProject key={project.id} project={project} />
+    ))}
   </PortfolioStyles>
 );
 
