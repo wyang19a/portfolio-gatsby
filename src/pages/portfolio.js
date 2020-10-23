@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -17,14 +18,26 @@ const SingleProject = ({ project }) => (
     {/* <img src="../assets/images/comp.png" alt="Hi" /> */}
   </SingleProjectStyle>
 );
-const PortfolioPage = () => (
-  <PortfolioStyles>
-    <p>Hi</p>
-    {/* {projects.map((project) => (
-      <SingleProject key={project.id} project={project} />
-    ))} */}
-  </PortfolioStyles>
-);
+const PortfolioPage = ({ data }) => {
+  const projects = data.projects.nodes;
+  return (
+    <PortfolioStyles>
+      {projects.map((project) => (
+        <SingleProject key={project.id} project={project} />
+      ))}
+    </PortfolioStyles>
+  );
+};
+
+export const query = graphql`
+  query {
+    projects: allSanityProject {
+      nodes {
+        id
+        name
+      }
+    }
+  }
+`;
 
 export default PortfolioPage;
-
