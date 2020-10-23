@@ -1,9 +1,9 @@
 {
   "name": "wootae-yang-portfolio",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Portfolio to showcase my work",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Wootae Yang <wyang20a@gmail.com>",
   "eslintConfig": {
     "extends": [
       "wesbos"
@@ -21,8 +21,9 @@
     "gatsby-plugin-offline": "^3.2.30",
     "gatsby-plugin-react-helmet": "^3.3.12",
     "gatsby-plugin-sharp": "^2.6.38",
+    "gatsby-plugin-styled-components": "^3.3.14",
     "gatsby-plugin-transition-link": "^1.20.5",
-    "gatsby-source-filesystem": "^2.3.32",
+    "gatsby-source-sanity": "^6.0.4",
     "gatsby-transformer-sharp": "^2.5.16",
     "gsap": "^3.5.1",
     "isomorphic-fetch": "^3.0.0",
