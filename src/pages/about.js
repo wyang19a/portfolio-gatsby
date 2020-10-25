@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const AboutStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
   padding: 5.5rem;
   h1.name {
     font-size: 3.5rem;
@@ -11,10 +15,11 @@ const AboutStyles = styled.div`
   }
   p.sub-name {
     font-size: 1.5rem;
-    text-align: left;
+    /* text-align: left; */
   }
   p.description {
     width: 70%;
+    text-align: right;
   }
 `;
 
