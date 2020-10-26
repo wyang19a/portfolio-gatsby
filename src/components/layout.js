@@ -5,6 +5,7 @@ import Nav from './Nav';
 import 'normalize.css';
 // import GlobalStyles from '../styles/GlobalStyles';
 import Typography from '../styles/Typography';
+import GlobalStyles from '../styles/GlobalStyles';
 // import stripes from '../assets/images/stripes.svg';
 
 // const SiteBorderStyles = styled.div`
@@ -23,7 +24,7 @@ import Typography from '../styles/Typography';
 
 const ContentStyles = styled.div`
   /* background: linear-gradient(to right, #010048, #090088); */
-  background: #010048;
+  background: var(--medblue);
   /* padding: 5.5rem; */
   color: white;
   width: 100%;
@@ -46,6 +47,7 @@ const LayoutStyle = styled.div`
 export default function Layout({ children }) {
   return (
     <LayoutStyle>
+      <GlobalStyles />
       <Typography />
       <Nav location={window.location} />
       <div>

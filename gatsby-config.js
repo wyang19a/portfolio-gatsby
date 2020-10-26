@@ -11,6 +11,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sharp`,
     {
       resolve: 'gatsby-source-sanity',
       options: {

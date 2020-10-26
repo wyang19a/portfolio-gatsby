@@ -3,45 +3,51 @@ import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 
-const PortfolioStyles = styled.div`
+const PortfolioGridStyles = styled.div`
+  max-width: 80%;
   padding: 5.5rem;
+  padding-right: 0;
   display: grid;
-
-  .project-type-btn {
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-  }
-  .sub-btn {
-    background: darkblue;
-  }
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 4rem;
 `;
 const SingleProjectStyle = styled.div`
+  text-align: center;
   display: grid;
+  @supports not (grid-template-rows: subgrid) {
+    /* --rows: auto auto 500px; */
+  }
+  /* grid-template-rows: var(--rows, subgrid); */
+  grid-row: span 3;
+  grid-gap: 1 rem;
+  h2 {
+    margin: 0;
+  }
   /* width: 100%; */
   /* height: 500px; */
+  /* grid-row: 3; */
+  /* grid-gap: 1rem; */
+  /* grid-template-rows: repeat(auto-fill, minmax(300px, 1fr)); */
 `;
 
 const SingleProject = ({ project }) => (
   <SingleProjectStyle>
     <h2>{project.name}</h2>
-    <Img fluid={project.thumbnail.asset.fluid} alt={project.name} />
+    {project.type ? <p>Professional</p> : <p>Personal Side Project</p>}
     <div>{project.description}</div>
+
+    {/* <Img fluid={project.thumbnail.asset.fluid} alt={project.name} /> */}
   </SingleProjectStyle>
 );
 const PortfolioPage = ({ data }) => {
   const projects = data.projects.nodes;
+  // console.log(projects);
   return (
-    <PortfolioStyles>
-      <div className="project-type-btn">
-        <div className="side-project sub-btn">Side projects</div>
-        <div className="pro-project sub-btn">Professional</div>
-      </div>
+    <PortfolioGridStyles>
       {projects.map((project) => (
         <SingleProject key={project.id} project={project} />
       ))}
-    </PortfolioStyles>
+    </PortfolioGridStyles>
   );
 };
 
@@ -53,12 +59,13 @@ export const query = graphql`
         name
         thumbnail {
           asset {
-            fluid(maxWidth: 400, maxHeight: 400) {
+            fluid(maxWidth: 400) {
               ...GatsbySanityImageFluid
             }
           }
         }
         description
+        type
       }
     }
   }
