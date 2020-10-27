@@ -4,6 +4,9 @@ const GlobalStyles = createGlobalStyle`
   :root {
     /* variables here */
     --medblue: #010048;
+    --darkblue: #03002e;
+    --navwidth: 200px;
+    --bordercolor: #02006c;
   }
 
   .gatsby-image-wrapper img[src*=base64\\,] {
@@ -13,6 +16,9 @@ const GlobalStyles = createGlobalStyle`
 
   img {
     max-width: 100%; 
+  }
+  a {
+    text-decoration: none;
   }
 `;
 

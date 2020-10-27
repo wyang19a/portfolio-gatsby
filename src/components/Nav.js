@@ -7,14 +7,14 @@ const NavStyle = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Megrim&family=Plaster&display=swap');
   --padtop: 5rem;
   ul {
-    border-right: 3px solid #02006c;
+    border-right: 3px solid var(--bordercolor);
     margin: 0;
     padding: 0;
     padding-top: var(--padtop);
     text-align: center;
     list-style: none;
     height: calc(100vh - var(--padtop));
-    background-color: #03002e;
+    background-color: var(--darkblue);
     display: grid;
     grid-template-rows: repeat(5, 100px);
 
@@ -42,13 +42,13 @@ const NavStyle = styled.div`
     }
   }
   .logo {
-    font-family: 'Plaster', cursive;
+    /* font-family: 'Plaster', cursive;
     font-size: 65px;
-    color: #1964bd;
-    /* font-family: 'Megrim', cursive;
+    color: #1964bd; */
+    font-family: 'Megrim', cursive;
     font-size: 80px;
     font-weight: bolder;
-    color: #1964bd; */
+    color: #1964bd;
     /* text-shadow: 0px 1px, 1px 0px, 1px 1px; */
     &[aria-current='page'] {
       color: #1964bd;

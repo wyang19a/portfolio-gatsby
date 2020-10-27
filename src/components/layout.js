@@ -34,13 +34,20 @@ const ContentStyles = styled.div`
 
 const LayoutStyle = styled.div`
   display: grid;
-  grid-template-columns: 200px 1fr;
-
+  grid-template-columns: var(--navwidth) 1fr;
   footer {
     display: block;
     position: absolute;
     bottom: 0;
-    left: 50%;
+    z-index: 10;
+    height: 50px;
+    width: calc(100% - var(--navwidth));
+    background-color: var(--darkblue);
+    text-align: right;
+    border-top: 1px solid var(--bordercolor);
+    p {
+      padding-right: 20px;
+    }
   }
 `;
 
@@ -50,12 +57,10 @@ export default function Layout({ children }) {
       <GlobalStyles />
       <Typography />
       <Nav location={window.location} />
-      <div>
-        <ContentStyles>
-          {children}
-          <Footer />
-        </ContentStyles>
-      </div>
+      <ContentStyles>
+        {children}
+        <Footer />
+      </ContentStyles>
     </LayoutStyle>
   );
 }
