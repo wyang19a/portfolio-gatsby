@@ -2,6 +2,7 @@ import { graphql, Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 const PortfolioGridStyles = styled.div`
   max-width: 80%;
@@ -52,20 +53,25 @@ const SingleProjectStyle = styled.div`
 `;
 
 const SingleProject = ({ project }) => (
-  <Link to={`/portfolio/${project.slug.current}`}>
+  <AniLink
+    paintDrip
+    duration={0.3}
+    color="black"
+    to={`/portfolio/${project.slug.current}`}
+  >
     <SingleProjectStyle>
       <Img fluid={project.thumbnail.asset.fluid} alt={project.name} />
       <div className="post-content">
         <h2>{project.name}</h2>
         {project.type ? (
-          <p className="p-type">Professional</p>
+          <strong className="p-type">Professional</strong>
         ) : (
           <p className="p-type">Side Project</p>
         )}
         {/* <div>{project.description}</div> */}
       </div>
     </SingleProjectStyle>
-  </Link>
+  </AniLink>
 );
 const PortfolioPage = ({ data }) => {
   const projects = data.projects.nodes;

@@ -42,12 +42,11 @@ const NavStyle = styled.div`
     }
   }
   .logo {
-    /* font-family: 'Plaster', cursive;
+    font-family: 'Plaster', cursive;
     font-size: 65px;
-    color: #1964bd; */
-    font-family: 'Megrim', cursive;
+    /* font-family: 'Megrim', cursive;
     font-size: 80px;
-    font-weight: bolder;
+    font-weight: bolder; */
     color: #1964bd;
     /* text-shadow: 0px 1px, 1px 0px, 1px 1px; */
     &[aria-current='page'] {

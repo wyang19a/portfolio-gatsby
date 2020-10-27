@@ -20,6 +20,9 @@ const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
   }
+  .ggul {
+    display: none;
+  }
 `;
 
 export default GlobalStyles;
