@@ -24,6 +24,12 @@ const AboutStyles = styled.div`
     width: 75%;
     text-align: right;
   }
+  .gatsby-image-wrapper {
+    width: 150px;
+    border-radius: 75px;
+    border: 2px solid white;
+    margin-bottom: 10px;
+  }
 `;
 
 const AboutPage = ({ data: { profile } }) => {
@@ -32,13 +38,10 @@ const AboutPage = ({ data: { profile } }) => {
     <AboutStyles>
       <Img fluid={profile.image.asset.fluid} alt={profile.name} />
       <h1 className="name">
-        {profile.name} <span className="title">{profile.title}</span>
+        {profile.name}, <span className="title">{profile.title}</span>
       </h1>
-      <p className="sub-name">{profile.title}</p>
+      <p className="sub-name">{profile.position}</p>
       <p className="description">{profile.description}</p>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        {/* <Image /> */}
-      </div>
     </AboutStyles>
   );
 };
@@ -52,7 +55,7 @@ export const query = graphql`
       title
       image {
         asset {
-          fluid(maxWidth: 200) {
+          fluid(maxWidth: 500) {
             ...GatsbySanityImageFluid
           }
         }
