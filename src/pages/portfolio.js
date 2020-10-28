@@ -8,7 +8,7 @@ const PortfolioGridStyles = styled.div`
   max-width: 80%;
   padding: 5.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 4rem;
   margin: 0 auto;
 `;
@@ -43,6 +43,7 @@ const SingleProjectStyle = styled.div`
   .p-type {
     color: #e77f67;
     margin: 10px 0 0 0;
+    font-size: 10px;
   }
   :hover .gatsby-image-wrapper {
     box-shadow: 0 0 30px white;
@@ -62,7 +63,7 @@ const SingleProject = ({ project }) => (
     <SingleProjectStyle>
       <Img fluid={project.thumbnail.asset.fluid} alt={project.name} />
       <div className="post-content">
-        <h2>{project.name}</h2>
+        <h4>{project.name}</h4>
         {project.type ? (
           <strong className="p-type">Professional</strong>
         ) : (

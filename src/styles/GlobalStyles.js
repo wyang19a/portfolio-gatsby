@@ -5,7 +5,7 @@ const GlobalStyles = createGlobalStyle`
     /* variables here */
     --medblue: #010048;
     --darkblue: #03002e;
-    --navwidth: 200px;
+    --navwidth: 150px;
     --bordercolor: #02006c;
   }
 
@@ -22,6 +22,9 @@ const GlobalStyles = createGlobalStyle`
   }
   .ggul {
     display: none;
+  }
+  li {
+    list-style: none;
   }
 `;
 

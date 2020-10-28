@@ -27,7 +27,7 @@ const NavStyle = styled.div`
     order: 1;
   }
   a {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: white;
     text-decoration: none;
     /* display: block; */
@@ -43,7 +43,7 @@ const NavStyle = styled.div`
   }
   .logo {
     font-family: 'Plaster', cursive;
-    font-size: 65px;
+    font-size: 40px;
     /* font-family: 'Megrim', cursive;
     font-size: 80px;
     font-weight: bolder; */
