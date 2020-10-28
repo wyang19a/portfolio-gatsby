@@ -45,6 +45,7 @@ const ContactPage = () => {
   };
   return (
     <ContactStyles>
+      <h2>GET IN TOUCH</h2>
       <div className="item">
         <MailIcon />
         wyang19a@gmail.com
