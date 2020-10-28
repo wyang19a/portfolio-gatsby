@@ -83,7 +83,7 @@ const ContactStyles = styled.div`
   }
 
   .contactForm {
-    border-left: 4px solid red;
+    border-left: 4px solid #0f3959;
     position: absolute;
     padding: 70px 50px;
     background: #fff;

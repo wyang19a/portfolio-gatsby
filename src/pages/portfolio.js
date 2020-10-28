@@ -28,7 +28,7 @@ const SingleProjectStyle = styled.div`
   cursor: pointer;
   .gatsby-image-wrapper {
     transition: 0.5s;
-    border-radius: 6px;
+    /* border-radius: 6px; */
   }
   .post-content {
     transition: 0.5s;
@@ -37,7 +37,7 @@ const SingleProjectStyle = styled.div`
     padding: 15px;
     color: black;
     /* border: 1px solid var(--bordercolor); */
-    border-radius: 6px;
+    /* border-radius: 6px; */
     transform: translateY(-60px);
   }
   .p-type {
