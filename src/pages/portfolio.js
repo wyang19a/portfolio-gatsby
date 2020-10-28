@@ -8,7 +8,7 @@ const PortfolioGridStyles = styled.div`
   max-width: 80%;
   padding: 5.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 4rem;
   margin: 0 auto;
 `;
@@ -34,7 +34,7 @@ const SingleProjectStyle = styled.div`
     transition: 0.5s;
     background-color: #ffffffdd;
     margin: 0 50px;
-    padding: 20px;
+    padding: 15px;
     color: black;
     /* border: 1px solid var(--bordercolor); */
     border-radius: 6px;
@@ -50,6 +50,9 @@ const SingleProjectStyle = styled.div`
   }
   :hover .post-content {
     transform: translateY(-80px);
+  }
+  h4 {
+    /* font-size: 20px; */
   }
 `;
 
