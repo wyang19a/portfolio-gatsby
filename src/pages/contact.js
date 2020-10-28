@@ -15,7 +15,8 @@ const ContactStyles = styled.div`
     padding: 0;
   }
   display: grid;
-  justify-content: center;
+  /* justify-content: center; */
+  padding-left: 5.5rem;
   align-items: center;
   height: 100vh;
   .contactinfo {
@@ -47,6 +48,9 @@ const ContactStyles = styled.div`
       margin-right: 15px;
       filter: invert(1);
       opacity: 0.5;
+      a {
+        color: inherit;
+      }
     }
     li:hover {
       opacity: 1;
@@ -79,12 +83,13 @@ const ContactStyles = styled.div`
   }
 
   .contactForm {
+    border-left: 4px solid red;
     position: absolute;
     padding: 70px 50px;
     background: #fff;
     margin-left: 250px;
-    padding-left: 100px;
-    width: 300px;
+    padding-left: 96px;
+    width: 700px;
     height: 400px;
     box-shadow: 0 50px 50px rgba(0, 0, 0, 0.5);
     transform: translateY(-50px);
@@ -227,7 +232,9 @@ const ContactPage = () => {
           </ul>
           <ul className="sci">
             <li>
-              <LinkedinIcon />
+              <a href="https://www.linkedin.com/in/wootae-yang/">
+                <LinkedinIcon />
+              </a>
             </li>
             <li>
               <TwitterIcon />
@@ -244,6 +251,7 @@ const ContactPage = () => {
             method="post"
             onSubmit={submitForm}
             action="https://formspree.io/mnqvgjad"
+            autoComplete="off"
           >
             <div className="inputBox w50">
               <input
