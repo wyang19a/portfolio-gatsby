@@ -1,8 +1,8 @@
-// import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
-// dotenv.config({ path: '.env' });
+dotenv.config({ path: '.env' });
 
-module.exports = {
+export default {
   siteMetadata: {
     title: `Wootae`,
     description: `Portfolio to showcase my work`,
@@ -11,8 +11,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
     {
       resolve: 'gatsby-source-sanity',
       options: {
