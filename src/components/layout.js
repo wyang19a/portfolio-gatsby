@@ -55,7 +55,7 @@ export default function Layout({ children }) {
     <LayoutStyle>
       <GlobalStyles />
       <Typography />
-      <Nav location={window.location} />
+      <Nav location={typeof window !== 'undefined' ? window.location : ''} />
       <ContentStyles>
         {children}
         <Footer />

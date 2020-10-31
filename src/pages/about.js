@@ -70,7 +70,7 @@ const SingleLogo = ({ logo }) => (
 );
 const AboutPage = ({ data: { profile, logos } }) => {
   const logoList = logos.nodes;
-  console.log(logoList);
+  // console.log(logoList);
   return (
     <>
       <AboutStyles>
