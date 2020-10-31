@@ -39,35 +39,32 @@ const HomeStyles = styled.div`
   }
 `;
 
-const IndexPage = ({ data: { intro } }) => {
-  console.log(intro);
-  return (
-    <HomeGridStyle>
-      <HomeStyles>
-        <h1>
-          Hi! <br />
-          I'm Wootae,
-        </h1>
-        <div>
-          <Typed
-            className="typedString"
-            strings={[
-              'Fullstack Engineer / SQL Database Developer Based In Boston, MA.',
-            ]}
-            typeSpeed={40}
-          />
-        </div>
-      </HomeStyles>
-      <motion.div
-        className="Img"
-        initial={{ x: 3000 }}
-        animate={{ x: 220 }}
-        transition={{ delay: 3.5, type: 'tween', duration: 1 }}
-      >
-        <img src={HomeImage} alt="Homeimg" />
-      </motion.div>
-    </HomeGridStyle>
-  );
-};
+const IndexPage = () => (
+  <HomeGridStyle>
+    <HomeStyles>
+      <h1>
+        Hi! <br />
+        I'm Wootae,
+      </h1>
+      <div>
+        <Typed
+          className="typedString"
+          strings={[
+            'Fullstack Engineer / SQL Database Developer Based In Boston, MA.',
+          ]}
+          typeSpeed={40}
+        />
+      </div>
+    </HomeStyles>
+    <motion.div
+      className="Img"
+      initial={{ x: 3000 }}
+      animate={{ x: 220 }}
+      transition={{ delay: 3.5, type: 'tween', duration: 1 }}
+    >
+      <img src={HomeImage} alt="Homeimg" />
+    </motion.div>
+  </HomeGridStyle>
+);
 
 export default IndexPage;
