@@ -5,11 +5,13 @@ import Img from 'gatsby-image';
 import Resume from '../static/resume.pdf';
 
 const AboutStyles = styled.div`
+  background-color: white;
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4rem;
+  padding: 5.5rem;
   h1.name {
     font-size: 3rem;
   }
@@ -32,7 +34,7 @@ const AboutStyles = styled.div`
     margin-top: 20px;
     display: flex;
     flex-direction: row;
-    background: grey;
+    /* background: grey; */
     padding: 20px;
     /* border-radius: 10px; */
     .gatsby-image-wrapper {
@@ -43,6 +45,7 @@ const AboutStyles = styled.div`
   }
   .logo {
     display: grid;
+    padding-left: 20px;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     grid-template-rows: auto 30px;
     img {
@@ -68,9 +71,8 @@ const SingleLogo = ({ logo }) => (
     <p>{logo.name}</p>
   </div>
 );
-const AboutPage = ({ data: { profile, logos } }) => {
+const AboutPage = ({ data : { profile, logos } }) => {
   const logoList = logos.nodes;
-  // console.log(logoList);
   return (
     <>
       <AboutStyles>
@@ -92,35 +94,5 @@ const AboutPage = ({ data: { profile, logos } }) => {
     </>
   );
 };
-
-export const query = graphql`
-  query {
-    profile: sanityProfile {
-      name
-      description
-      position
-      title
-      image {
-        asset {
-          fluid(maxWidth: 500) {
-            ...GatsbySanityImageFluid
-          }
-        }
-      }
-    }
-    logos: allSanityLogos {
-      nodes {
-        name
-        image {
-          asset {
-            fluid(maxWidth: 150) {
-              ...GatsbySanityImageFluid
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 
 export default AboutPage;

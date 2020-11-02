@@ -1,70 +1,71 @@
+import { graphql } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import Typed from 'react-typed';
-import { motion } from 'framer-motion';
-import HomeImage from '../static/homeimage.png';
+import AboutPage from '../components/About';
+import ContactPage from '../components/contact';
+import Home from '../components/Home';
+import PortfolioPage from '../components/Portfolio';
 
-const HomeGridStyle = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  .Img {
-    align-self: center;
+const IndexStyles = styled.div`
 
-    width: 28vw;
-    /* background-color: red; */
-    filter: invert(0.7);
-  }
 `;
 
-const HomeStyles = styled.div`
-  padding: 5.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: calc(100vh - 11rem);
-  transform: translateY(-60px);
-  .typedString {
-    font-size: 1.2rem;
-    width: 75%;
-    position: absolute !important;
-    text-transform: uppercase;
-    span:nth-child(1) {
-      letter-spacing: 3px;
+const IndexPage = ({ data }) => {
+return (
+  <IndexStyles>
+    <Home />
+    <AboutPage data={data} />
+    <PortfolioPage data={data} />
+    <ContactPage />
+  </IndexStyles>
+)};
+
+export const query = graphql`
+  query {
+    profile: sanityProfile {
+      name
+      description
+      position
+      title
+      image {
+        asset {
+          fluid(maxWidth: 500) {
+            ...GatsbySanityImageFluid
+          }
+        }
+      }
+    }
+    logos: allSanityLogos {
+      nodes {
+        name
+        image {
+          asset {
+            fluid(maxWidth: 150) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
+    }
+    projects: allSanityProject {
+      nodes {
+        id
+        name
+        thumbnail {
+          asset {
+            fluid(maxWidth: 400, maxHeight: 400) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+        description
+        type
+        slug {
+          current
+        }
+      }
     }
   }
-  h1 {
-    font-size: 4rem;
-    padding-bottom: 40px;
-  }
 `;
-
-const IndexPage = () => (
-  <HomeGridStyle>
-    <HomeStyles>
-      <h1>
-        Hi! <br />
-        I'm Wootae,
-      </h1>
-      <div>
-        <Typed
-          className="typedString"
-          strings={[
-            'Fullstack Engineer / SQL Database Developer Based In Boston, MA.',
-          ]}
-          typeSpeed={40}
-        />
-      </div>
-    </HomeStyles>
-    <motion.div
-      className="Img"
-      initial={{ x: 3000 }}
-      animate={{ x: 220 }}
-      transition={{ delay: 3.5, type: 'tween', duration: 1 }}
-    >
-      <img src={HomeImage} alt="Homeimg" />
-    </motion.div>
-  </HomeGridStyle>
-);
 
 export default IndexPage;

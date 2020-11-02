@@ -7,20 +7,27 @@ const NavStyle = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Megrim&family=Plaster&display=swap');
   --padtop: 5rem;
   ul {
-    border-right: 3px solid var(--bordercolor);
     margin: 0;
     padding: 0;
-    padding-top: var(--padtop);
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    position: fixed;
+    top: 0;
     text-align: center;
     list-style: none;
-    height: calc(100vh - var(--padtop));
-    background-color: var(--darkblue);
-    display: grid;
-    grid-template-rows: repeat(5, 100px);
-
+    height: 4rem;
+    width: 100%;
+    background-color: #fff;
     align-items: center;
-
-    justify-content: center;
+    justify-content: space-around;
+    z-index: 100;
+    /* position: fixed; */
+    /* border-right: 3px solid var(--bordercolor); */
+    /* border: 1px solid white; */
+  }
+  .nav-item {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
   }
   li {
     display: grid;
@@ -28,7 +35,7 @@ const NavStyle = styled.div`
   }
   a {
     font-size: 1rem;
-    color: white;
+    color: black;
     text-decoration: none;
     /* display: block; */
     /* &:hover {
@@ -64,6 +71,7 @@ export default function Nav({ location }) {
     <NavStyle>
       <div>
         <ul>
+          <div>
           <li>
             <AniLink
               swipe
@@ -79,7 +87,23 @@ export default function Nav({ location }) {
               entryOffset={AniLinkConfigs.entryOffset}
               duration={AniLinkConfigs.duration}
             >
-              WY
+              W
+            </AniLink>
+          </li>
+          </div>
+          <div className="nav-item">
+          <li>
+            <AniLink
+              swipe
+              to="/"
+              direction={`${
+                location.pathname === withPrefix('/about')
+                  ? 'right' : 'left'
+              }`}
+              entryOffset={AniLinkConfigs.entryOffset}
+              duration={AniLinkConfigs.duration}
+            >
+              Home
             </AniLink>
           </li>
           <li>
@@ -122,6 +146,7 @@ export default function Nav({ location }) {
               Contact
             </AniLink>
           </li>
+          </div>
         </ul>
       </div>
     </NavStyle>

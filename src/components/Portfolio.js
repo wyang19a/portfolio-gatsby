@@ -1,11 +1,11 @@
-import { graphql, Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 const PortfolioGridStyles = styled.div`
-  max-width: 80%;
+background-color: #eee;
+  max-width: 100%;
   padding: 5.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -88,28 +88,5 @@ const PortfolioPage = ({ data }) => {
     </PortfolioGridStyles>
   );
 };
-
-export const query = graphql`
-  query {
-    projects: allSanityProject {
-      nodes {
-        id
-        name
-        thumbnail {
-          asset {
-            fluid(maxWidth: 400, maxHeight: 400) {
-              ...GatsbySanityImageFluid
-            }
-          }
-        }
-        description
-        type
-        slug {
-          current
-        }
-      }
-    }
-  }
-`;
 
 export default PortfolioPage;

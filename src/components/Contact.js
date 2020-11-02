@@ -11,6 +11,7 @@ import {
 import { GoLocation as LocationIcon } from 'react-icons/go';
 
 const ContactStyles = styled.div`
+  background-color: #2d2d2d;
   ul {
     padding: 0;
   }
@@ -323,9 +324,3 @@ const ContactPage = () => {
 
 export default ContactPage;
 
-/* */
-// id="contactForm"
-// className="contact-form"
-// onSubmit={this.submitForm}
-// action=""
-// method="POST"
