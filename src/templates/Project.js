@@ -41,6 +41,9 @@ const ProjectGrid = styled.div`
       grid-template-columns: 1fr;
     }
   }
+  @media (max-width: 574px) {
+    padding: 5.5rem 2rem 2rem 2rem;
+  }
 `;
 
 export default function SingleProjectPage({ data: { project } }) {
