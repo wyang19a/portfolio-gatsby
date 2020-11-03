@@ -4,8 +4,9 @@ dotenv.config({ path: '.env' });
 
 export default {
   siteMetadata: {
-    title: `Wootae`,
-    description: `Portfolio to showcase my work`,
+    title: `Wootae Yang`,
+    description: `Full Stack Engineer / Database Developer`,
+    siteUrl: `https://www.wootae.dev`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

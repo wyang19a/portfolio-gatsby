@@ -3,6 +3,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import SEO from '../components/SEO';
 
 const ProjectGrid = styled.div`
   /* text-align: center; */
@@ -47,9 +48,9 @@ const ProjectGrid = styled.div`
 `;
 
 export default function SingleProjectPage({ data: { project } }) {
-  console.log(project);
   return (
     <ProjectGrid>
+      <SEO title={project.name} />
       <AniLink swipe to="/" duration={0.3} direction="right">
         Back to Main Page
       </AniLink>

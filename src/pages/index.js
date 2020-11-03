@@ -5,11 +5,13 @@ import AboutPage from '../components/About';
 import ContactPage from '../components/Contact';
 import Home from '../components/Home';
 import PortfolioPage from '../components/Portfolio';
+import SEO from '../components/SEO';
 
 const IndexStyles = styled.div``;
 
 const IndexPage = ({ data }) => (
   <IndexStyles>
+    <SEO title="Home" />
     <Home />
     <AboutPage data={data} id="about" />
     <PortfolioPage data={data} />
