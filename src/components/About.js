@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
-import Resume from '../static/resume.pdf';
+import Resume from '../../static/resume.pdf';
 
 const AboutStyles = styled.div`
   background-color: white;

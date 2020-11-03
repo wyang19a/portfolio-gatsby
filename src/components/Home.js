@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Typed from 'react-typed';
 import { motion } from 'framer-motion';
 import Particles from 'react-particles-js';
-import HomeImage from '../static/homeimage.png';
+import HomeImage from '../../static/homeimage.png';
 import ParticlesSettings from './ParticlesSettings';
 
 const Container = styled.div`
