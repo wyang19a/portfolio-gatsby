@@ -39,9 +39,7 @@ export default function Layout({ children }) {
       <GlobalStyles />
       <Typography />
       <Nav location={typeof window !== 'undefined' ? window.location : ''} />
-      <ContentStyles>
-        {children}
-      </ContentStyles>
+      <ContentStyles>{children}</ContentStyles>
       <Footer />
     </LayoutStyle>
   );

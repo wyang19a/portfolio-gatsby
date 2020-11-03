@@ -12,10 +12,10 @@ const ProjectGrid = styled.div`
 `;
 
 export default function SingleProjectPage({ data: { project } }) {
-  // console.log(project.images[0].asset.fluid);
+  console.log(project);
   return (
     <ProjectGrid>
-      <AniLink paintDrip to="/portfolio" duration={0.3} color="black">
+      <AniLink swipe to="/" duration={0.3} direction="right">
         Back to Portfolio
       </AniLink>
       <h2>{project.name}</h2>

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import {
   AiOutlineMail as MailIcon,
   AiOutlinePhone as PhoneIcon,
-  AiOutlineFacebook as FacebookIcon,
   AiOutlineTwitter as TwitterIcon,
   AiOutlineInstagram as InstagramIcon,
   AiOutlineLinkedin as LinkedinIcon,
@@ -11,50 +10,42 @@ import {
 import { GoLocation as LocationIcon } from 'react-icons/go';
 
 const ContactStyles = styled.div`
+  /* text-align: center; */
+  display: grid;
   background-color: #2d2d2d;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  padding: 5.5rem;
   ul {
     padding: 0;
   }
-  display: grid;
-  /* justify-content: center; */
-  padding-left: 5.5rem;
-  align-items: center;
-  height: 100vh;
   .contactinfo {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    align-items: center;
-  }
-  .left {
-    span {
-      font-size: 1rem;
-    }
-    background: #0f3959;
-    padding: 40px;
-    height: 350px;
-    width: 250px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    z-index: 1;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr; */
+    /* justify-content: center; */
+    /* align-items: center; */
   }
   .sci {
     display: flex;
-    position: relative;
     font-size: 3rem;
-    transform: translate(80px, -5px);
-    bottom: 0;
+    /* transform: translate(80px, -5px); */
+    /* bottom: 0; */
+    /* padding-right: 40px; */
     li {
-      margin-right: 15px;
+      margin-right: 40px;
       filter: invert(1);
       opacity: 0.5;
+      transition: 0.5s;
       a {
         color: inherit;
       }
     }
     li:hover {
+      color: #1964bd;
+      /* #e69b42 */
       opacity: 1;
+      transform: rotateY(360deg) scale(1.25, 1.25);
     }
   }
   li {
@@ -66,7 +57,7 @@ const ContactStyles = styled.div`
     font-size: 2rem;
   }
   li span:nth-child(2) {
-    color: #fff;
+    /* color: #fff; */
     margin-left: 10px;
     font-weight: 300;
     opacity: 0.5;
@@ -85,16 +76,12 @@ const ContactStyles = styled.div`
 
   .contactForm {
     border-left: 4px solid #0f3959;
-    position: absolute;
     padding: 70px 50px;
     background: #fff;
-    margin-left: 250px;
-    padding-left: 96px;
-    width: 700px;
+    /* margin-left: 250px; */
+    width: 50vw;
     height: 400px;
     box-shadow: 0 50px 50px rgba(0, 0, 0, 0.5);
-    transform: translateY(-50px);
-    z-index: 0;
     color: black;
     h2 {
       font-size: 25px;
@@ -170,6 +157,16 @@ const ContactStyles = styled.div`
   p {
     margin: 0;
   }
+
+  @media (max-width: 871px) {
+    grid-template-columns: 1fr;
+    .contactinfo {
+      margin: 0 auto;
+    }
+    .contactForm {
+      width: 80vw;
+    }
+  }
 `;
 
 const ContactPage = () => {
@@ -207,120 +204,117 @@ const ContactPage = () => {
     setGgul('changed');
   };
   return (
-    <ContactStyles>
+    <ContactStyles id="contact">
       <div className="contactinfo">
-        <div className="left">
-          <h2>Contact Info</h2>
-          <ul className="info">
-            <li>
-              <span>
-                <LocationIcon />
-              </span>
-              <span>Boston, MA</span>
-            </li>
-            <li>
-              <span>
-                <MailIcon />
-              </span>
-              <span>wyang19a@gmail.com</span>
-            </li>
-            <li>
-              <span>
-                <PhoneIcon />
-              </span>
-              <span>617-990-6178</span>
-            </li>
-          </ul>
-          <ul className="sci">
-            <li>
-              <a href="https://www.linkedin.com/in/wootae-yang/">
-                <LinkedinIcon />
-              </a>
-            </li>
-            <li>
-              <TwitterIcon />
-            </li>
-            <li>
-              <InstagramIcon />
-            </li>
-          </ul>
-        </div>
-        <div className="contactForm">
-          <h2>Send a message</h2>
-          <form
-            className="formBox"
-            method="post"
-            onSubmit={submitForm}
-            action="https://formspree.io/mnqvgjad"
-            autoComplete="off"
-          >
-            <div className="inputBox w50">
-              <input
-                type="email"
-                name="email"
-                className={email ? 'filled' : 'empty'}
-                onChange={(e) => setEmail(e.target.value)}
-                id="email"
-                required="required"
-              />
-              <span>{email ? 'Email' : 'Email *'}</span>
-            </div>
-            <div className="inputBox w50">
-              <input
-                type="text"
-                name="name"
-                className={name ? 'filled' : 'empty'}
-                onChange={(e) => setName(e.target.value)}
-                id="name"
-              />
-              <span>Name</span>
-            </div>
-            <div className="inputBox w100">
-              <input
-                type="text"
-                className={subject ? 'filled' : 'empty'}
-                onChange={(e) => setSubject(e.target.value)}
-                name="subject"
-                id="subject"
-              />
-              <span>Subject</span>
-            </div>
-            <div className="inputBox w100">
-              <textarea
-                name="message"
-                className={`message ${message ? 'filled' : 'empty'}`}
-                onChange={(e) => setMessage(e.target.value)}
-                id="message"
-                rows="5"
-                required="required"
-              />
-              <span>{message ? 'Message' : 'Message *'}</span>
-            </div>
-            <div className="inputBox w100 actionBtn-grp">
-              <input className="actionBtn" type="submit" value="Send" />
-              <input className="actionBtn" type="reset" value="Clear" />
-            </div>
+        <h2>Contact Info</h2>
+        <ul className="info">
+          <li>
+            <span>
+              <LocationIcon />
+            </span>
+            <span>Boston, MA</span>
+          </li>
+          <li>
+            <span>
+              <MailIcon />
+            </span>
+            <span>wyang19a@gmail.com</span>
+          </li>
+          <li>
+            <span>
+              <PhoneIcon />
+            </span>
+            <span>617-990-6178</span>
+          </li>
+        </ul>
+        <ul className="sci">
+          <li>
+            <a href="https://www.linkedin.com/in/wootae-yang/">
+              <LinkedinIcon />
+            </a>
+          </li>
+          <li>
+            <TwitterIcon />
+          </li>
+          <li>
+            <InstagramIcon />
+          </li>
+        </ul>
+      </div>
+      <div className="contactForm">
+        <h2>Send a message</h2>
+        <form
+          className="formBox"
+          method="post"
+          onSubmit={submitForm}
+          action="https://formspree.io/mnqvgjad"
+          autoComplete="off"
+        >
+          <div className="inputBox w50">
             <input
-              type="ggul"
-              name="ggul"
-              id="ggul"
-              className="ggul"
-              onChange={updateGgul}
+              type="email"
+              name="email"
+              className={email ? 'filled' : 'empty'}
+              onChange={(e) => setEmail(e.target.value)}
+              id="email"
+              required="required"
             />
-            {state === 'SUCCESS' ? (
-              <p>Thank you. I'll get back to you as soon as I can!</p>
-            ) : (
-              ''
-            )}
-            {state === 'ERROR' && (
-              <p>Oops! There was an error. Please double check your email.</p>
-            )}
-          </form>
-        </div>
+            <span>{email ? 'Email' : 'Email *'}</span>
+          </div>
+          <div className="inputBox w50">
+            <input
+              type="text"
+              name="name"
+              className={name ? 'filled' : 'empty'}
+              onChange={(e) => setName(e.target.value)}
+              id="name"
+            />
+            <span>Name</span>
+          </div>
+          <div className="inputBox w100">
+            <input
+              type="text"
+              className={subject ? 'filled' : 'empty'}
+              onChange={(e) => setSubject(e.target.value)}
+              name="subject"
+              id="subject"
+            />
+            <span>Subject</span>
+          </div>
+          <div className="inputBox w100">
+            <textarea
+              name="message"
+              className={`message ${message ? 'filled' : 'empty'}`}
+              onChange={(e) => setMessage(e.target.value)}
+              id="message"
+              rows="5"
+              required="required"
+            />
+            <span>{message ? 'Message' : 'Message *'}</span>
+          </div>
+          <div className="inputBox w100 actionBtn-grp">
+            <input className="actionBtn" type="submit" value="Send" />
+            <input className="actionBtn" type="reset" value="Clear" />
+          </div>
+          <input
+            type="ggul"
+            name="ggul"
+            id="ggul"
+            className="ggul"
+            onChange={updateGgul}
+          />
+          {state === 'SUCCESS' ? (
+            <p>Thank you. I'll get back to you as soon as I can!</p>
+          ) : (
+            ''
+          )}
+          {state === 'ERROR' && (
+            <p>Oops! There was an error. Please double check your email.</p>
+          )}
+        </form>
       </div>
     </ContactStyles>
   );
 };
 
 export default ContactPage;
-

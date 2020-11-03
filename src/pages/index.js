@@ -2,23 +2,20 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import AboutPage from '../components/About';
-import ContactPage from '../components/contact';
+import ContactPage from '../components/Contact';
 import Home from '../components/Home';
 import PortfolioPage from '../components/Portfolio';
 
-const IndexStyles = styled.div`
+const IndexStyles = styled.div``;
 
-`;
-
-const IndexPage = ({ data }) => {
-return (
+const IndexPage = ({ data }) => (
   <IndexStyles>
     <Home />
-    <AboutPage data={data} />
+    <AboutPage data={data} id="about" />
     <PortfolioPage data={data} />
     <ContactPage />
   </IndexStyles>
-)};
+);
 
 export const query = graphql`
   query {
@@ -45,6 +42,7 @@ export const query = graphql`
             }
           }
         }
+        _id
       }
     }
     projects: allSanityProject {

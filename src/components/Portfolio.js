@@ -4,23 +4,24 @@ import Img from 'gatsby-image';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 const PortfolioGridStyles = styled.div`
-background-color: #eee;
+  background-color: #eee;
   max-width: 100%;
   padding: 5.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 4rem;
+  gap: 2rem;
   margin: 0 auto;
+  @media (max-width: 564px) {
+    padding: 5.5rem 2rem 2rem 2rem;
+  }
 `;
 const SingleProjectStyle = styled.div`
   text-align: center;
-  display: grid;
   @supports not (grid-template-rows: subgrid) {
-    /* --rows: auto auto 500px; */
+    --rows: auto;
   }
-  /* grid-template-rows: var(--rows, subgrid); */
-  grid-row: span 3;
-  grid-gap: 1 rem;
+  grid-template-rows: var(--rows, subgrid);
+  grid-gap: 1rem;
   margin-bottom: 0;
   h2 {
     margin: 0;
@@ -36,6 +37,11 @@ const SingleProjectStyle = styled.div`
     margin: 0 50px;
     padding: 15px;
     color: black;
+    height: 50px;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
     /* border: 1px solid var(--bordercolor); */
     /* border-radius: 6px; */
     transform: translateY(-60px);
@@ -51,16 +57,13 @@ const SingleProjectStyle = styled.div`
   :hover .post-content {
     transform: translateY(-80px);
   }
-  h4 {
-    /* font-size: 20px; */
-  }
 `;
 
 const SingleProject = ({ project }) => (
   <AniLink
-    paintDrip
+    swipe
     duration={0.3}
-    color="black"
+    direction="left"
     to={`/portfolio/${project.slug.current}`}
   >
     <SingleProjectStyle>
@@ -81,7 +84,7 @@ const PortfolioPage = ({ data }) => {
   const projects = data.projects.nodes;
   // console.log(projects);
   return (
-    <PortfolioGridStyles>
+    <PortfolioGridStyles id="portfolio">
       {projects.map((project) => (
         <SingleProject key={project.id} project={project} />
       ))}

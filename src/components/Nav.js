@@ -1,7 +1,8 @@
 import { Link, withPrefix } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
+// import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const NavStyle = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Megrim&family=Plaster&display=swap');
@@ -28,43 +29,51 @@ const NavStyle = styled.div`
   .nav-item {
     display: grid;
     grid-template-columns: repeat(4, 100px);
+    /* width: 50%; */
+    justify-content: center;
+    align-items: center;
   }
   li {
     display: grid;
     order: 1;
-  }
-  a {
-    font-size: 1rem;
-    color: black;
-    text-decoration: none;
-    /* display: block; */
-    /* &:hover {
-      color: red;
-    } */
-    /* @media (max-width: 800px) {
-      font-size: 2rem;
-    } */
-    &[aria-current='page'] {
-      color: red;
-    }
+    width: 70%;
+    /* text-align: center; */
   }
   .logo {
     font-family: 'Plaster', cursive;
     font-size: 40px;
-    /* font-family: 'Megrim', cursive;
-    font-size: 80px;
-    font-weight: bolder; */
     color: #1964bd;
-    /* text-shadow: 0px 1px, 1px 0px, 1px 1px; */
-    &[aria-current='page'] {
-      color: #1964bd;
+  }
+  button {
+    border: none;
+    background-color: #fff;
+    color: grey;
+    cursor: pointer;
+    display: inline-block;
+    :focus {
+      outline: 0;
+    }
+  }
+  .navbtn {
+    border-radius: 5px;
+    padding: 5px;
+    transition: 0.5s;
+    :focus {
+      outline: 0;
+    }
+    :hover {
+      transform: scale(1.25, 1.25);
+    }
+  }
+  @media (max-width: 564px) {
+    button {
+      font-size: 0.75rem;
+    }
+    .nav-item {
+      grid-template-columns: repeat(2, 100px);
     }
   }
 `;
-const AniLinkConfigs = {
-  entryOffset: 100,
-  duration: '0.3',
-};
 
 export default function Nav({ location }) {
   return (
@@ -72,80 +81,53 @@ export default function Nav({ location }) {
       <div>
         <ul>
           <div>
-          <li>
-            <AniLink
-              swipe
-              to="/"
-              direction={`${
-                location.pathname === withPrefix('/about') ||
-                location.pathname === withPrefix('/portfolio') ||
-                location.pathname === withPrefix('/contact')
-                  ? 'right'
-                  : 'left'
-              }`}
-              className="logo"
-              entryOffset={AniLinkConfigs.entryOffset}
-              duration={AniLinkConfigs.duration}
-            >
-              W
-            </AniLink>
-          </li>
+            <li>
+              <button
+                type="button"
+                className="logo"
+                onClick={() => scrollTo('#home')}
+              >
+                W
+              </button>
+            </li>
           </div>
           <div className="nav-item">
-          <li>
-            <AniLink
-              swipe
-              to="/"
-              direction={`${
-                location.pathname === withPrefix('/about')
-                  ? 'right' : 'left'
-              }`}
-              entryOffset={AniLinkConfigs.entryOffset}
-              duration={AniLinkConfigs.duration}
-            >
-              Home
-            </AniLink>
-          </li>
-          <li>
-            <AniLink
-              swipe
-              to="/about"
-              direction={`${
-                location.pathname === withPrefix('/portfolio') ||
-                location.pathname === withPrefix('/contact')
-                  ? 'right'
-                  : 'left'
-              }`}
-              entryOffset={AniLinkConfigs.entryOffset}
-              duration={AniLinkConfigs.duration}
-            >
-              About
-            </AniLink>
-          </li>
-          <li>
-            <AniLink
-              swipe
-              to="/portfolio"
-              direction={`${
-                location.pathname === withPrefix('/contact') ? 'right' : 'left'
-              }`}
-              entryOffset={AniLinkConfigs.entryOffset}
-              duration={AniLinkConfigs.duration}
-            >
-              Portfolio
-            </AniLink>
-          </li>
-          <li>
-            <AniLink
-              swipe
-              to="/contact"
-              entryOffset={AniLinkConfigs.entryOffset}
-              duration={AniLinkConfigs.duration}
-              direction="left"
-            >
-              Contact
-            </AniLink>
-          </li>
+            <li>
+              <button
+                type="button"
+                className="navbtn"
+                onClick={() => scrollTo('#home')}
+              >
+                Home
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="navbtn"
+                onClick={() => scrollTo('#about')}
+              >
+                About
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="navbtn"
+                onClick={() => scrollTo('#portfolio')}
+              >
+                Portfolio
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="navbtn"
+                onClick={() => scrollTo('#contact')}
+              >
+                Contact
+              </button>
+            </li>
           </div>
         </ul>
       </div>

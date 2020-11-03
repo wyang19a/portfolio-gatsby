@@ -1,4 +1,3 @@
-import { graphql, Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
@@ -24,30 +23,21 @@ const AboutStyles = styled.div`
     width: 75%;
     text-align: center;
   }
-  .gatsby-image-wrapper {
+  .gatsby-image-wrapper.profile-pic {
     width: 150px;
     border-radius: 75px;
     border: 2px solid white;
     margin-bottom: 10px;
   }
-  .logos {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    /* background: grey; */
-    padding: 20px;
-    /* border-radius: 10px; */
-    .gatsby-image-wrapper {
-      width: 100px;
-      border-radius: 0;
-      border: 0;
-    }
+  .container {
+    display: grid;
+    grid-template-columns: repeat(8, 100px);
+    gap: 2rem;
   }
   .logo {
-    display: grid;
-    padding-left: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    grid-template-rows: auto 30px;
+    /* display: grid; */
+    /* padding-left: 20px;
+    grid-template-rows: auto 30px;*/
     img {
       justify-content: space-around;
       align-items: center;
@@ -63,6 +53,30 @@ const AboutStyles = styled.div`
     background: #0f3959;
     border: 1px solid;
   }
+  @media (max-width: 1050px) {
+    .container {
+      grid-template-columns: repeat(4, 100px);
+    }
+  }
+  @media (max-width: 564px) {
+    .container {
+      grid-template-columns: repeat(2, 100px);
+    }
+    padding: 5.5rem 2rem 2rem 2rem;
+    h1.name {
+      font-size: 2rem;
+    }
+    span.title {
+      font-size: 1.5rem;
+      display: block;
+      text-align: center;
+    }
+    p.description {
+      font-size: 1rem;
+      width: 100%;
+      text-align: center;
+    }
+  }
 `;
 
 const SingleLogo = ({ logo }) => (
@@ -71,24 +85,30 @@ const SingleLogo = ({ logo }) => (
     <p>{logo.name}</p>
   </div>
 );
-const AboutPage = ({ data : { profile, logos } }) => {
+const AboutPage = ({ data: { profile, logos } }) => {
   const logoList = logos.nodes;
   return (
     <>
-      <AboutStyles>
-        <Img fluid={profile.image.asset.fluid} alt={profile.name} />
-        <Link href={Resume} className="resume-btn">
+      <AboutStyles id="about">
+        <Img
+          fluid={profile.image.asset.fluid}
+          className="profile-pic"
+          alt={profile.name}
+        />
+        <a href={Resume} className="resume-btn">
           View Resume
-        </Link>
+        </a>
         <h1 className="name">
           {profile.name}, <span className="title">{profile.title}</span>
         </h1>
         <p className="sub-name">{profile.position}</p>
         <p className="description">{profile.description}</p>
-        <div className="logos">
+        <div className="container">
+          {/* <div className="logos"> */}
           {logoList.map((logo) => (
-            <SingleLogo key={logo.id} logo={logo} />
+            <SingleLogo key={logo._id} logo={logo} />
           ))}
+          {/* </div> */}
         </div>
       </AboutStyles>
     </>
