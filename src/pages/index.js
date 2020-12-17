@@ -30,7 +30,10 @@ const IndexStyles = styled.div`
     text-shadow: 0 0 10px #c0c0c0;
     font-size: 2rem;
     a {
-      :visited {
+      color: #46bcde;
+      :visited,
+      :active,
+      :link {
         color: #46bcde;
       }
     }
@@ -46,7 +49,9 @@ const IndexStyles = styled.div`
     a {
       transition: 0.3s;
       padding: 0 0.5rem;
-      :visited {
+      :visited,
+      :active,
+      :link {
         color: white;
       }
       :hover {
