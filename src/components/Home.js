@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Typed from 'react-typed';
 import { motion } from 'framer-motion';
 import Particles from 'react-particles-js';
-import HomeImage from '../../static/homeimage.png';
 import ParticlesSettings from './ParticlesSettings';
 
 const Container = styled.div`
@@ -92,14 +91,6 @@ const Home = () => (
           />
         </div>
       </div>
-      <motion.div
-        className="Img"
-        initial={{ x: 3000, y: 50 }}
-        animate={{ x: 220 }}
-        transition={{ delay: 3.5, type: 'tween', duration: 1 }}
-      >
-        <img src={HomeImage} alt="Homeimg" />
-      </motion.div>
     </HomeStyle>
   </Container>
 );

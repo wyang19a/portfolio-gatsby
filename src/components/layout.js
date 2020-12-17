@@ -36,11 +36,13 @@ const LayoutStyle = styled.div`
 export default function Layout({ children }) {
   return (
     <LayoutStyle>
-      <GlobalStyles />
-      <Typography />
-      <Nav location={typeof window !== 'undefined' ? window.location : ''} />
-      <ContentStyles>{children}</ContentStyles>
-      <Footer />
+      <div>
+        <GlobalStyles />
+        <Typography />
+        {/* <Nav location={typeof window !== 'undefined' ? window.location : ''} /> */}
+        <ContentStyles>{children}</ContentStyles>
+        {/* <Footer /> */}
+      </div>
     </LayoutStyle>
   );
 }
