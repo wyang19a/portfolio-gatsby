@@ -79,6 +79,7 @@ const IndexPage = () => (
     <video
       className="video"
       src="https://imgur.com/LaYl6bC.mp4"
+      playsInline
       autoPlay
       loop
       muted
