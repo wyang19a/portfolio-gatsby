@@ -18,13 +18,13 @@ const GlobalStyles = createGlobalStyle`
     max-width: 100%; 
   }
   a {
-    text-decoration: none;
+    /* text-decoration: none; */
   }
   .ggul {
     display: none;
   }
   li {
-    list-style: none;
+    /* list-style: none; */
   }
 `;
 
