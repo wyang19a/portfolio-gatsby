@@ -10,7 +10,7 @@ import { FaLinkedin } from 'react-icons/fa';
 import SEO from '../components/SEO';
 
 const IndexStyles = styled.div`
-  /* overflow: hidden; */
+  overflow: hidden;
   width: 100vw;
   height: 100vh;
   .box {
@@ -62,7 +62,7 @@ const IndexStyles = styled.div`
   .video {
     min-width: 100vw;
     min-height: 100vh;
-    filter: grayscale();
+    filter: grayscale(1);
   }
   @media (max-width: 400px) {
     p {
@@ -82,7 +82,7 @@ const IndexPage = () => (
     {/* <div className="videocontainer"> */}
     <video
       className="video"
-      src="https://imgur.com/LaYl6bC.mp4"
+      src="https://imgur.com/tSjxbdF.mp4"
       playsInline
       autoPlay
       loop
