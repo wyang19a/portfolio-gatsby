@@ -95,7 +95,7 @@ const IndexPage = () => (
         <h1>New Site Coming Soon</h1>
         <p>
           Please head to{' '}
-          <a href="https://wyang19a.github.io">https://wyang.github.io</a> to
+          <a href="https://wyang19a.github.io">https://wyang19a.github.io</a> to
           view my portfolio.
         </p>
         <div className="icons">
