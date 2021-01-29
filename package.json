@@ -1,7 +1,7 @@
 {
   "name": "wootae-yang-portfolio",
   "private": true,
-  "description": "Portfolio to showcase my work",
+  "description": "Portfolio",
   "version": "0.1.0",
   "author": "Wootae Yang <wyang20a@gmail.com>",
   "eslintConfig": {

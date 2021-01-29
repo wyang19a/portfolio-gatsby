@@ -76,6 +76,7 @@ const IndexStyles = styled.div`
     }
   }
 `;
+const string = 'Under Maintenance';
 
 const IndexPage = () => (
   <IndexStyles>
@@ -92,11 +93,13 @@ const IndexPage = () => (
     <SEO title="Home" />
     <div className="container">
       <div className="box">
-        <h1>New Site Coming Soon</h1>
+        {string.split(' ').map((str) => (
+          <>
+            <h1>{str}</h1>
+          </>
+        ))}
         <p>
-          Please head to{' '}
-          <a href="https://wyang19a.github.io">https://wyang19a.github.io</a> to
-          view my portfolio.
+          <a href="https://wyang19a.github.io">https://wyang19a.github.io</a>
         </p>
         <div className="icons">
           <a
