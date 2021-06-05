@@ -1,12 +1,12 @@
 // import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 // import AboutPage from '../components/About';
 // import ContactPage from '../components/Contact';
 // import Home from '../components/Home';
 // import PortfolioPage from '../components/Portfolio';
 import { DiGithubAlt } from 'react-icons/di';
-import { FaLinkedin } from 'react-icons/fa';
+import { FaLinkedin, FaSalesforce } from 'react-icons/fa';
 import SEO from '../components/SEO';
 
 const IndexStyles = styled.div`
@@ -37,6 +37,9 @@ const IndexStyles = styled.div`
         color: #46bcde;
       }
     }
+  }
+  p.theP {
+    color: #46bcde;
   }
   h1 {
     font-size: 4.5rem;
@@ -76,51 +79,66 @@ const IndexStyles = styled.div`
     }
   }
 `;
-const string = 'Under Maintenance';
+const string = 'Wootae A. Yang';
 
-const IndexPage = () => (
-  <IndexStyles>
-    {/* <div className="videocontainer"> */}
-    <video
-      className="video"
-      src="https://imgur.com/tSjxbdF.mp4"
-      playsInline
-      autoPlay
-      loop
-      muted
-    />
-    {/* </div> */}
-    <SEO title="Home" />
-    <div className="container">
-      <div className="box">
-        {string.split(' ').map((str) => (
+const IndexPage = () => {
+  useEffect(() => {
+    document.getElementById('slowvid').playbackRate = 0.75;
+  });
+  return (
+    <IndexStyles>
+      {/* <div className="videocontainer"> */}
+      <video
+        id="slowvid"
+        className="video"
+        src="https://imgur.com/tSjxbdF.mp4"
+        playsInline
+        autoPlay
+        loop
+        muted
+      />
+      {/* </div> */}
+      <SEO title="Home" />
+      <div className="container">
+        <div className="box">
+          <h1>{string}</h1>
+          {/* {string.split(' ').map((str) => (
           <>
             <h1>{str}</h1>
           </>
-        ))}
-        <p>
-          <a href="https://wyang19a.github.io">https://wyang19a.github.io</a>
-        </p>
-        <div className="icons">
-          <a
-            href="https://github.com/wyang19a"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <DiGithubAlt />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/wootae-yang"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaLinkedin />
-          </a>
+        ))} */}
+          <p className="theP">
+            Salesforce/Web Developer | SQL Database MCSE
+            {/* <a href="https://wyang19a.github.io">https://wyang19a.github.io</a> */}
+          </p>
+          <div className="icons">
+            <a
+              href="https://github.com/wyang19a"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <DiGithubAlt />
+            </a>
+            <a
+              href="https://trailblazer.me/id/wootae-yang"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaSalesforce />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/wootae-yang"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaLinkedin />
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </IndexStyles>
-);
+    </IndexStyles>
+  );
+};
 
 // export const query = graphql`
 //   query {
