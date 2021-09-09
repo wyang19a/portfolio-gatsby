@@ -10,6 +10,7 @@ import { FaLinkedin, FaSalesforce } from 'react-icons/fa';
 import SEO from '../components/SEO';
 
 const IndexStyles = styled.div`
+  background-color: #4d4d4d;
   overflow: hidden;
   width: 100vw;
   height: 100vh;
@@ -81,14 +82,13 @@ const IndexStyles = styled.div`
 `;
 const string = 'Wootae A. Yang';
 
-const IndexPage = () => {
-  useEffect(() => {
-    document.getElementById('slowvid').playbackRate = 0.75;
-  });
-  return (
-    <IndexStyles>
-      {/* <div className="videocontainer"> */}
-      <video
+const IndexPage = () => (
+  // useEffect(() => {
+  //   document.getElementById('slowvid').playbackRate = 0.75;
+  // });
+  <IndexStyles>
+    {/* <div className="videocontainer"> */}
+    {/* <video
         id="slowvid"
         className="video"
         src="https://imgur.com/tSjxbdF.mp4"
@@ -96,50 +96,48 @@ const IndexPage = () => {
         autoPlay
         loop
         muted
-      />
-      {/* </div> */}
-      <SEO title="Home" />
-      <div className="container">
-        <div className="box">
-          <h1>{string}</h1>
-          {/* {string.split(' ').map((str) => (
+      /> */}
+    {/* </div> */}
+    <SEO title="Home" />
+    <div className="container">
+      <div className="box">
+        <h1>{string}</h1>
+        {/* {string.split(' ').map((str) => (
           <>
             <h1>{str}</h1>
           </>
         ))} */}
-          <p className="theP">
-            Salesforce/Web Developer | SQL Database MCSE
-            {/* <a href="https://wyang19a.github.io">https://wyang19a.github.io</a> */}
-          </p>
-          <div className="icons">
-            <a
-              href="https://github.com/wyang19a"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <DiGithubAlt />
-            </a>
-            <a
-              href="https://trailblazer.me/id/wootae-yang"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaSalesforce />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/wootae-yang"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaLinkedin />
-            </a>
-          </div>
+        <p className="theP">
+          Salesforce/Web Developer | SQL Database MCSE
+          {/* <a href="https://wyang19a.github.io">https://wyang19a.github.io</a> */}
+        </p>
+        <div className="icons">
+          <a
+            href="https://github.com/wyang19a"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <DiGithubAlt />
+          </a>
+          <a
+            href="https://trailblazer.me/id/wootae-yang"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaSalesforce />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/wootae-yang"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaLinkedin />
+          </a>
         </div>
       </div>
-    </IndexStyles>
-  );
-};
-
+    </div>
+  </IndexStyles>
+);
 // export const query = graphql`
 //   query {
 //     profile: sanityProfile {
