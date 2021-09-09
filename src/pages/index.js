@@ -7,6 +7,8 @@ import styled from 'styled-components';
 // import PortfolioPage from '../components/Portfolio';
 import { DiGithubAlt } from 'react-icons/di';
 import { FaLinkedin, FaSalesforce } from 'react-icons/fa';
+import wiproLogo from '../assets/images/wipro-logo.png';
+
 import SEO from '../components/SEO';
 
 const IndexStyles = styled.div`
@@ -28,7 +30,6 @@ const IndexStyles = styled.div`
   h1,
   p {
     color: white;
-    text-shadow: 0 0 10px #c0c0c0;
     font-size: 2rem;
     a {
       color: #46bcde;
@@ -41,6 +42,16 @@ const IndexStyles = styled.div`
   }
   p.theP {
     color: #46bcde;
+  }
+  p.currently {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+  #wipro-logo {
+    max-height: 80px;
   }
   h1 {
     font-size: 4.5rem;
@@ -110,6 +121,12 @@ const IndexPage = () => (
         <p className="theP">
           Salesforce/Web Developer | SQL Database MCSE
           {/* <a href="https://wyang19a.github.io">https://wyang19a.github.io</a> */}
+        </p>
+        <p className="currently">
+          Currently with{' '}
+          <span className="company">
+            <img id="wipro-logo" src={wiproLogo} alt="Wipro" />
+          </span>
         </p>
         <div className="icons">
           <a
