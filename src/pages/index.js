@@ -18,7 +18,11 @@ const IndexStyles = styled.div`
   height: 100vh;
   .box {
     position: relative;
-    text-align: center;
+    text-align: left;
+  }
+  .name-icon {
+    display: flex;
+    gap: 3em;
   }
   .container {
     position: absolute;
@@ -42,24 +46,26 @@ const IndexStyles = styled.div`
   }
   p.theP {
     color: #46bcde;
+    margin: 1.5em 0;
+    font-size: 1.2em;
   }
   p.currently {
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    margin: 0;
     font-weight: 300;
   }
   #wipro-logo {
     max-height: 80px;
   }
   h1 {
-    font-size: 4.5rem;
+    font-size: 3rem;
     font-weight: 700;
   }
   .icons {
-    padding-top: 3rem;
-    font-size: 4rem;
+    padding-top: 1rem;
+    font-size: 2.3rem;
     color: white;
     a {
       transition: 0.3s;
@@ -91,7 +97,7 @@ const IndexStyles = styled.div`
     }
   }
 `;
-const string = 'Wootae A. Yang';
+const name = 'Wootae Yang';
 
 const IndexPage = () => (
   // useEffect(() => {
@@ -112,8 +118,39 @@ const IndexPage = () => (
     <SEO title="Home" />
     <div className="container">
       <div className="box">
-        <h1>{string}</h1>
-        {/* {string.split(' ').map((str) => (
+        <p className="currently">
+          Currently at{' '}
+          <span className="company">
+            <img id="wipro-logo" src={wiproLogo} alt="Wipro" />
+          </span>
+        </p>
+        <div className="name-icon">
+          <h1>{name}</h1>
+          <div className="icons">
+            <a
+              href="https://github.com/wyang19a"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <DiGithubAlt />
+            </a>
+            <a
+              href="https://trailblazer.me/id/wootae-yang"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaSalesforce />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/wootae-yang"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaLinkedin />
+            </a>
+          </div>
+        </div>
+        {/* {name.split(' ').map((str) => (
           <>
             <h1>{str}</h1>
           </>
@@ -122,35 +159,6 @@ const IndexPage = () => (
           Salesforce/Web Developer | SQL Database MCSE
           {/* <a href="https://wyang19a.github.io">https://wyang19a.github.io</a> */}
         </p>
-        <p className="currently">
-          Currently at{' '}
-          <span className="company">
-            <img id="wipro-logo" src={wiproLogo} alt="Wipro" />
-          </span>
-        </p>
-        <div className="icons">
-          <a
-            href="https://github.com/wyang19a"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <DiGithubAlt />
-          </a>
-          <a
-            href="https://trailblazer.me/id/wootae-yang"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaSalesforce />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/wootae-yang"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaLinkedin />
-          </a>
-        </div>
       </div>
     </div>
   </IndexStyles>
