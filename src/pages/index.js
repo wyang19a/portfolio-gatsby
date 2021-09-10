@@ -123,7 +123,7 @@ const IndexPage = () => (
           {/* <a href="https://wyang19a.github.io">https://wyang19a.github.io</a> */}
         </p>
         <p className="currently">
-          Currently with{' '}
+          Currently at{' '}
           <span className="company">
             <img id="wipro-logo" src={wiproLogo} alt="Wipro" />
           </span>
