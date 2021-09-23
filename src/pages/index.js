@@ -8,6 +8,8 @@ import styled from 'styled-components';
 import { DiGithubAlt } from 'react-icons/di';
 import { FaLinkedin, FaSalesforce } from 'react-icons/fa';
 import wiproLogo from '../assets/images/wipro-logo.png';
+import efeLogo from '../assets/images/efe-logo.png';
+// import efeLogo from '../assets/images/efe-logo.png';
 
 import SEO from '../components/SEO';
 
@@ -49,7 +51,7 @@ const IndexStyles = styled.div`
     margin: 1.5em 0;
     font-size: 1.2em;
   }
-  p.currently {
+  div.currently {
     display: flex;
     align-items: center;
     font-size: 1rem;
@@ -118,12 +120,12 @@ const IndexPage = () => (
     <SEO title="Home" />
     <div className="container">
       <div className="box">
-        <p className="currently">
+        <div className="currently">
           Currently at{' '}
           <span className="company">
             <img id="wipro-logo" src={wiproLogo} alt="Wipro" />
           </span>
-        </p>
+        </div>
         <div className="name-icon">
           <h1>{name}</h1>
           <div className="icons">
@@ -160,6 +162,10 @@ const IndexPage = () => (
           {/* <a href="https://wyang19a.github.io">https://wyang19a.github.io</a> */}
         </p>
       </div>
+      <div>On project with</div>
+      <span className="company">
+        <img id="wipro-logo" src={efeLogo} alt="Edelman Financial Engines" />
+      </span>
     </div>
   </IndexStyles>
 );
