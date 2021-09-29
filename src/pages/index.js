@@ -9,6 +9,7 @@ import { DiGithubAlt } from 'react-icons/di';
 import { FaLinkedin, FaSalesforce } from 'react-icons/fa';
 import wiproLogo from '../assets/images/wipro-logo.png';
 import efeLogo from '../assets/images/efe-logo.png';
+
 // import efeLogo from '../assets/images/efe-logo.png';
 
 import SEO from '../components/SEO';
@@ -122,9 +123,11 @@ const IndexPage = () => (
       <div className="box">
         <div className="currently">
           Currently at{' '}
-          <span className="company">
-            <img id="wipro-logo" src={wiproLogo} alt="Wipro" />
-          </span>
+          <a href="https://appirio.com/" target="_blank" rel="noreferrer">
+            <span className="company">
+              <img id="wipro-logo" src={wiproLogo} alt="Wipro" />
+            </span>
+          </a>
         </div>
         <div className="name-icon">
           <h1>{name}</h1>
@@ -162,10 +165,16 @@ const IndexPage = () => (
           {/* <a href="https://wyang19a.github.io">https://wyang19a.github.io</a> */}
         </p>
       </div>
-      <div>On project with</div>
-      <span className="company">
-        <img id="wipro-logo" src={efeLogo} alt="Edelman Financial Engines" />
-      </span>
+      {/* <div>On project with</div> */}
+      <a
+        href="https://www.edelmanfinancialengines.com/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span className="company">
+          <img id="wipro-logo" src={efeLogo} alt="Edelman Financial Engines" />
+        </span>
+      </a>
     </div>
   </IndexStyles>
 );
