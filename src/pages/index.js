@@ -9,6 +9,17 @@ import { DiGithubAlt } from 'react-icons/di';
 import { FaLinkedin, FaSalesforce } from 'react-icons/fa';
 import wiproLogo from '../assets/images/wipro-logo.png';
 import efeLogo from '../assets/images/efe-logo.png';
+import mcsa from '../assets/images/mcsa.png';
+import mcse from '../assets/images/mcse.png';
+import ms461 from '../assets/images/ms_461.png';
+import ms761 from '../assets/images/ms_761.png';
+import ms762 from '../assets/images/ms_762.png';
+import ms767 from '../assets/images/ms_767.png';
+import sfAdmin from '../assets/images/sf_admin.png';
+import sfFsc from '../assets/images/sf_fsc.png';
+import sfJs from '../assets/images/sf_js.png';
+import sfPd1 from '../assets/images/sf_pd1.png';
+import sfPd2 from '../assets/images/sf_pd2.png';
 
 // import efeLogo from '../assets/images/efe-logo.png';
 
@@ -18,7 +29,7 @@ const IndexStyles = styled.div`
   background-color: #4d4d4d;
   overflow: hidden;
   width: 100vw;
-  height: 100vh;
+  height: 130vh;
   .box {
     position: relative;
     text-align: left;
@@ -87,6 +98,24 @@ const IndexStyles = styled.div`
     min-width: 100vw;
     min-height: 100vh;
     filter: grayscale(1);
+  }
+
+  .badge-wrapper {
+    margin-top: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    flex-wrap: wrap;
+  }
+
+  .badge-set {
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    width: 80px;
   }
   @media (max-width: 400px) {
     p {
@@ -164,17 +193,89 @@ const IndexPage = () => (
           Salesforce/Web Developer | SQL Database MCSE
           {/* <a href="https://wyang19a.github.io">https://wyang19a.github.io</a> */}
         </p>
+        <a
+          href="https://www.edelmanfinancialengines.com/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span className="company">
+            <img
+              id="wipro-logo"
+              src={efeLogo}
+              alt="Edelman Financial Engines"
+            />
+          </span>
+        </a>
+        {/* <h3>Certifications</h3> */}
+        <div className="badge-wrapper">
+          <div className="badge-set">
+            <img
+              className="badge"
+              src={sfPd1}
+              alt="Salesforce Platform Developer 1"
+              title="Salesforce Platform Developer 1"
+            />
+            <img
+              className="badge"
+              src={sfPd2}
+              alt="Salesforce Platform Developer 2"
+              title="Salesforce Platform Developer 2"
+            />
+            <img
+              className="badge"
+              src={sfAdmin}
+              alt="Salesforce administrator"
+              title="Salesforce administrator"
+            />
+            <img
+              className="badge"
+              src={sfJs}
+              alt="Salesforce JavaScript Developer"
+              title="Salesforce JavaScript Developer"
+            />
+            <img
+              className="badge"
+              src={sfFsc}
+              alt="Salesforce Financial Services Cloud Accredited Professional"
+              title="Salesforce Financial Services Cloud Accredited Professional"
+            />
+          </div>
+          <div className="badge-set">
+            <img
+              className="badge"
+              src={mcse}
+              alt="MCSE: Data Management and Analytics"
+              title="MCSE: Data Management and Analytics"
+            />
+            <img
+              className="badge"
+              src={mcsa}
+              alt="MCSA: SQL Database Development"
+              title="MCSA: SQL Database Development"
+            />
+            <img
+              className="badge"
+              src={ms461}
+              alt="Querying Microsoft SQL Server 2012/2014"
+              title="Querying Microsoft SQL Server 2012/2014"
+            />
+            <img
+              className="badge"
+              src={ms761}
+              alt="Querying Data with Transact-SQL"
+              title="Querying Data with Transact-SQL"
+            />
+            <img className="badge" src={ms762} alt="Developing SQL Databases" />
+            <img
+              className="badge"
+              src={ms767}
+              alt="Implementing Data Warehouse using SQL"
+              title="Implementing Data Warehouse using SQL"
+            />
+          </div>
+        </div>
       </div>
       {/* <div>On project with</div> */}
-      <a
-        href="https://www.edelmanfinancialengines.com/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <span className="company">
-          <img id="wipro-logo" src={efeLogo} alt="Edelman Financial Engines" />
-        </span>
-      </a>
     </div>
   </IndexStyles>
 );
